@@ -62,6 +62,8 @@ class MetamaskAdapter extends BaseAdapter<void> {
   }
 
   async init(options: AdapterInitOptions): Promise<void> {
+    console.log('METAMASK INITIALISING');
+    
     super.checkInitializationRequirements();
     this.metamaskProvider = (await detectEthereumProvider({ mustBeMetaMask: true })) as EthereumProvider;
     if (!this.metamaskProvider) throw WalletInitializationError.notInstalled("Metamask extension is not installed");
